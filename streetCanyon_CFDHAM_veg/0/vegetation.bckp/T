@@ -1,0 +1,132 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/vegetation";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 285;
+
+boundaryField
+{
+    inlet
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    outlet
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    top
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    ground
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    air_to_street
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    air_to_windward
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    air_to_leeward
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    side1
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    side2
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    buildings
+    {
+        type            mapped;
+        fieldName       T;
+        setAverage      0;
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
+    }
+    air_to_vegetation
+    {
+        type            codedFixedValue;
+        value           uniform 284;
+        name            mapLeafTemp;
+
+        code
+        #{
+            const fvMesh& airMesh = db().time().lookupObject<fvMesh>("air");
+            const volScalarField& Tl = airMesh.lookupObject<volScalarField>("Tl");
+            const volScalarField& LAD = airMesh.lookupObject<volScalarField>("LAD");
+            operator==(gSum(Tl.field()*LAD.field())/gSum(LAD.field()));
+        #};
+    }
+
+}
+
+
+// ************************************************************************* //

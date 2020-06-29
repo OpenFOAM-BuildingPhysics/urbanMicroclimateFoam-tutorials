@@ -1,0 +1,111 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.2                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+boundary
+{
+    inlet
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     inlet;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    outlet
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     outlet;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    top
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     top;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    ground
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     ground;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    air_to_street
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_street;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    air_to_windward
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_windward;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    air_to_leeward
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     air_to_leeward;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    side1
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     side1;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    side2
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     side2;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    buildings
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     buildings;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+}
+
+// ************************************************************************* //

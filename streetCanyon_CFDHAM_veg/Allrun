@@ -1,0 +1,33 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+#-- Run on single processor
+echo "Initializing radiation models"
+runApplication faceAgglomerate -region air -dict constant/../vegetation/viewFactorsDict
+mv log.faceAgglomerate log.faceAgglomerate.air
+runApplication faceAgglomerate -region vegetation
+mv log.faceAgglomerate log.faceAgglomerate.vegetation
+runApplication calcLAI -region air
+runApplication viewFactorsGen -region vegetation
+runApplication solarRayTracingGen -region vegetation
+echo "Running solver"
+runApplication `getApplication`
+
+## Run in parallel
+#echo "Decomposing"
+#runApplication decomposePar -allregions
+#echo "Initializing radiation models"
+#runParallel faceAgglomerate -region air
+#mv log.faceAgglomerate log.faceAgglomerate.air
+#runParallel faceAgglomerate -region vegetation
+#mv log.faceAgglomerate log.faceAgglomerate.vegetation
+#runParallel calcLAI -region air
+#runParallel viewFactorsGen -region vegetation
+#runParallel solarRayTracingVegGen -region vegetation
+#echo "Running solver"
+#runParallel `getApplication`
+
+# ----------------------------------------------------------------- end-of-file

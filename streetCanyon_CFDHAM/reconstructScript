@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ "$OMPI_COMM_WORLD_RANK" == "0" ]; then #may change with batch system
+  echo "Running reconstruct script..."
+  qsub reconstructSubmit #may change with batch system
+fi
