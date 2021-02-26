@@ -22,8 +22,7 @@ directAndDiffuseCoeffs
 	smoothing true; //Smooth view factor matrix (use when in a close surface 
                 //to force Sum(Fij = 1)
 	constantAlbedo true; //constant emissivity on surfaces.
-	
-	timestepsInADay 24;
+
 }
 
 
