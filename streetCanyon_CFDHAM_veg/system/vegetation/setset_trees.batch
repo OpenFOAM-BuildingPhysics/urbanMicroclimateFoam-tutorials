@@ -1,3 +1,0 @@
-cellSet dummy new boxToCell (64 4 120)(66 8 130)
-cellZoneSet dummy new setToCellZone dummy
-

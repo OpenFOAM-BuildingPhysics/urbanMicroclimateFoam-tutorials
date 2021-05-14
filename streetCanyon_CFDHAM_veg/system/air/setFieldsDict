@@ -23,15 +23,14 @@ regions
 (
     // Set cell values
     // (does zerogradient on boundaries)
-    boxToCell
+    zoneToCell
     {
-        box (64 4 120)(66 8 130);
-
+        name trees;
         fieldValues
         (
-	    volScalarFieldValue LAD 1	
+	        volScalarFieldValue LAD 1
         );
-    }
+    }   
 );
 
 // ************************************************************************* //

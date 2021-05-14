@@ -61,7 +61,7 @@ patches
         constructFrom patches;
 
         // If constructFrom = patches : names of patches. Wildcards allowed.
-        patches (vegetation_to_dummy);
+        patches ("region1_to_.*");
 
         // If constructFrom = set : name of faceSet
         set f0;

@@ -19,17 +19,18 @@ done
 
 echo "Creating vegetation region for radiation calculation"
 cp -r constant/air/polyMesh/ constant/vegetation/polyMesh
-setSet -region vegetation -batch system/vegetation/setset_trees.batch
-splitMeshRegions -region vegetation -cellZones -defaultRegionName vegetation -overwrite
-rm -r 0/dummy
+topoSet -region vegetation -dict system/../air/topoSetDict
+splitMeshRegions -region vegetation -cellZones
+rm -r constant/vegetation/polyMesh
+cp -r 3600/region1/polyMesh constant/vegetation/
+rm -r 3600
+rm -r system/vegetation/trees system/vegetation/region*
 rm 0/vegetation/cellToRegion*
-rm -r constant/dummy
-rm -r system/vegetation/dummy
-rm -r system/vegetation/vegetation
-changeDictionary -region vegetation
 createPatch -region vegetation -overwrite
+changeDictionary -region vegetation
 cp 0/vegetation.bckp/* 0/vegetation/.
 cp 0/air.bckp/LAD 0/air/.
+topoSet -region air
 setFields -region air
 
 # ----------------------------------------------------------------- end-of-file
