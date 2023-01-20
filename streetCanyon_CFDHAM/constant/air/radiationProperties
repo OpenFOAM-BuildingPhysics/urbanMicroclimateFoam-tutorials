@@ -25,7 +25,7 @@ viewFactorSkyCoeffs
 }
 
 // Number of flow iterations per radiation iteration
-solverFreq 5;
+solverFreq 1;
 
 absorptionEmissionModel constantAbsorptionEmission;
 
