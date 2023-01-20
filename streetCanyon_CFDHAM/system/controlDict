@@ -58,6 +58,29 @@ functions
         writeControl outputTime;
 	    writeInterval 6;
     }*/
+    probes
+    {   
+        // Where to load it from
+        libs            ("libsampling.so");
+
+        type            probes;
+
+        // Name of the directory for probe data
+        name            probes;
+
+        // Write at same frequency as fields
+        writeControl    timeStep;
+        writeInterval   10;  
+
+        // Fields to be probed
+        fields          (T U); 
+        region air;
+
+        probeLocations
+        (
+            (65 5 125)
+        );
+    }    
 }
 
 //urbanMicroclimateFoam controls
