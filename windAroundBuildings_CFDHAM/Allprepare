@@ -1,0 +1,26 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+echo "Creating mesh for air region"
+blockMesh > log.blockMesh.air 2>&1
+surfaceFeatures > log.surfaceFeatures.air 2>&1
+snappyHexMesh -overwrite > log.snappyHexMesh.air 2>&1
+rm -rf constant/air/polyMesh
+mv constant/polyMesh constant/air/
+changeDictionary -region air > log.changeDictionary.air 2>&1
+
+echo "Creating mesh for solid regions"
+for i in buildings
+do
+    extrudeMesh > log.extrudeMesh.$i 2>&1
+    rm -rf constant/$i/polyMesh
+    mv constant/polyMesh constant/$i/
+    createPatch -region $i -overwrite > log.createPatch.$i 2>&1
+    changeDictionary -region $i > log.changeDictionary.$i 2>&1
+    setSet -region $i -noVTK -batch system/$i/setset.batch > log.setSet.$i 2>&1
+done
+
+# ----------------------------------------------------------------- end-of-file
