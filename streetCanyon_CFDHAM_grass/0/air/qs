@@ -57,7 +57,7 @@ boundaryField
     {
         type            solarLoadRadiationViewFactor;
         albedoMode      lookup;
-        albedo          uniform 0.4;
+        albedo          uniform 0.15;//0.4;
         qso             uniform 0;
         value           uniform 0;
     }
