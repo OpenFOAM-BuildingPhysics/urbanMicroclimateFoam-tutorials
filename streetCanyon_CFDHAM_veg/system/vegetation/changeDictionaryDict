@@ -106,6 +106,14 @@ boundary
         offsetMode      uniform;
         offset          (0 0 0);
     }
+    air_to_vegetation
+    {
+        type            mappedWall;
+        sampleMode      nearestCell;
+        sampleRegion    air;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
 }
 
 // ************************************************************************* //

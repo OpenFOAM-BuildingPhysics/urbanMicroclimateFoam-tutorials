@@ -113,17 +113,12 @@ boundaryField
     }
     air_to_vegetation
     {
-        type            codedFixedValue;
-        value           uniform 284;
-        name            mapLeafTemp;
-
-        code
-        #{
-            const fvMesh& airMesh = db().time().lookupObject<fvMesh>("air");
-            const volScalarField& Tl = airMesh.lookupObject<volScalarField>("Tl");
-            const volScalarField& LAD = airMesh.lookupObject<volScalarField>("LAD");
-            operator==(gSum(Tl.field()*LAD.field())/gSum(LAD.field()));
-        #};
+        type            mappedLeafTemperature;
+        field           Tl; 
+        setAverage      0;  
+        average         0;
+        interpolationScheme cell;
+        value           uniform 285;
     }
 
 }
