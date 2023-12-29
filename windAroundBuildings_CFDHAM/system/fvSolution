@@ -35,16 +35,14 @@ solvers
 
 SIMPLE
 {
+    nNonOrthogonalCorrectors 0;
+
     residualControl
     {
         p               1e-4;
         U               1e-4;
         "(k|omega|epsilon)" 1e-4;
     }
-    nNonOrthogonalCorrectors 0;
-    pRefCell        0;
-    pRefValue       0;
-
 }
 
 potentialFlow
