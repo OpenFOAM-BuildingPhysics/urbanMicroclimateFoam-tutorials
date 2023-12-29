@@ -1,0 +1,51 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "345600/leeward";
+    object      Ts;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 300; 
+
+boundaryField
+{
+    buildings_to_air
+    {
+        type            compressible::CFDHAMsolidTemperatureCoupledMixed;
+        qrNbr           qr;
+        qsNbr           qs;
+        value           uniform 300; 
+    }
+    interior
+    {
+        type            externalWallHeatFluxTemperature;
+        mode            coefficient;
+        kappaMethod     lookup;
+        kappa           lambda_m;
+        qr              none;
+        h               uniform 0.405;
+        Ta              uniform 295.15;
+        thicknessLayers 0 ( );
+        kappaLayers     0 ( );
+        value           uniform 295.15;
+    }
+    sides
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

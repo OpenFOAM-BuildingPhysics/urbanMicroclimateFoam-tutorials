@@ -1,0 +1,92 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.2                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+boundary
+{
+    west
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     west;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    east
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     east;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    north
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     north;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    south
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     south;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    ground
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     ground;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    top
+    {
+        type            mappedPatch;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     top;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    buildings
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     buildings;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    air_to_vegetation
+    {
+        type            mappedWall;
+        sampleMode      nearestCell;
+        sampleRegion    air;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+}
+
+// ************************************************************************* //
