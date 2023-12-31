@@ -24,7 +24,7 @@ boundaryField
     inlet
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
@@ -33,7 +33,7 @@ boundaryField
     outlet
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
@@ -42,7 +42,7 @@ boundaryField
     top
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
@@ -51,7 +51,7 @@ boundaryField
     ground
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
@@ -60,7 +60,7 @@ boundaryField
     air_to_street
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
@@ -69,7 +69,7 @@ boundaryField
     air_to_windward
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
@@ -78,7 +78,7 @@ boundaryField
     air_to_leeward
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
@@ -87,7 +87,7 @@ boundaryField
     side1
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
@@ -96,7 +96,7 @@ boundaryField
     side2
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
@@ -105,7 +105,7 @@ boundaryField
     buildings
     {
         type            mapped;
-        fieldName       T;
+        field           T;
         setAverage      0;
         average         0;
         interpolationScheme cell;
