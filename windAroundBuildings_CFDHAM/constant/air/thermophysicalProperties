@@ -23,7 +23,7 @@ thermoType
     thermo          hConst;
     equationOfState Boussinesq;
     specie          specie;
-    energy          sensibleEnthalpy;
+    energy          sensibleInternalEnergy;
 }
 
 mixture
@@ -35,6 +35,7 @@ mixture
     thermodynamics
     {
         Cp              1004.4;
+        Cv              1004.4;
         Hf              0;
     }
     transport

@@ -37,8 +37,9 @@ boundaryField
     }
     ground
     {
-        type            nutkAtmRoughWallFunction;
-        z0              uniform 0.03;
+        type            nutkRoughWallFunction;
+        Cs              uniform 9.793;
+        Ks              uniform 0.03;
         value           uniform 0.1;
     }
     north
