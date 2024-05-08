@@ -30,15 +30,9 @@ boundaryField
     }
     interior
     {
-        type            externalWallHeatFluxTemperature;
-        mode            coefficient;
-        kappaMethod     lookup;
-        kappa           lambda_m;
-        qr              none;
-        h               uniform 0.405;
-        Ta              uniform 293.15;
-        thicknessLayers 0 ( );
-        kappaLayers     0 ( );
+        type            compressible::CFDHAMsolidTemperatureTransferCoeffInterior;
+        hcoeff          0.405;
+        Tamb            "$FOAM_CASE/0/windward/T_room.dat";
         value           uniform 300; 
     }
     top
