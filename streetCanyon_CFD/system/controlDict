@@ -78,7 +78,7 @@ functions
 
         probeLocations
         (
-            (65 5 125)
+            (65 125 5)
         );
     }    
 }
