@@ -15,7 +15,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 // Write agglomeration as a volScalarField with calculated boundary values
-writeFacesAgglomeration   false;
+writeFacesAgglomeration   true;
 writeViewFactorMatrix   true;
 
 //Debug option
