@@ -18,7 +18,7 @@ FoamFile
 regions
 (
     fluid   (air)
-	solid   (street windward leeward)
+    solid   (street windward leeward)
     vegetation ()
 );
 

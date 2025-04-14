@@ -48,15 +48,15 @@ runTimeModifiable true;
 functions
 {
     /*sysCall
-    {	
-    	type systemCall;
+    {    
+        type systemCall;
         functionObjectLibs ( "libutilityFunctionObjects.so" );
-	    region street;
+        region street;
         executeCalls 0();
-    	endCalls 0();
+        endCalls 0();
         writeCalls 1("./reconstructScript");
         writeControl outputTime;
-	    writeInterval 6;
+        writeInterval 6;
     }*/
     probes
     {   
@@ -85,13 +85,13 @@ functions
 
 //urbanMicroclimateFoam controls
 
-initialSolidTimestepFactor	0.001666667;
+initialSolidTimestepFactor    0.001666667;
 
 minDeltaT       1E-6;
 
 maxDeltaT       30;
 
-minFluidIteration	0;
-maxFluidIteration	10000;
+minFluidIteration    0;
+maxFluidIteration    10000;
 
 // ************************************************************************* //

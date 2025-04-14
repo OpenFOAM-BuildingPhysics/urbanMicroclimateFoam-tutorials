@@ -206,7 +206,7 @@ boundary
     {
         type wall;
         faces
-        (	  
+        (      
             (8 9 15 14)
         );
     }
@@ -251,7 +251,7 @@ boundary
     {
         type slip;
         faces
-        (	
+        (    
             (18 19 43 42)
             (19 20 44 43)
             (20 21 45 44)

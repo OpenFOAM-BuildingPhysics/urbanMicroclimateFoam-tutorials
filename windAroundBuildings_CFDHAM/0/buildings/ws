@@ -23,7 +23,7 @@ boundaryField
 {
     buildings_to_air
     {
-    	type			zeroGradient;
+        type            zeroGradient;
     }
     interior
     {

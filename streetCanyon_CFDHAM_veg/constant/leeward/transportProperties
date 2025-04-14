@@ -20,10 +20,10 @@ buildingMaterials
     {
         name    brick;
         buildingMaterialModel Hamstad5Brick;
-	    rho     1600;
-    	cap     1000;
-		lambda1	0.682;	//lambda = lambda1 + ws*lambda2
-		lambda2	0;
+        rho     1600;
+        cap     1000;
+        lambda1    0.682;    //lambda = lambda1 + ws*lambda2
+        lambda2    0;
     }   
 );
 
