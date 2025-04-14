@@ -19,9 +19,9 @@ solarLoadModel  directAndDiffuse;
 
 directAndDiffuseCoeffs
 {
-	smoothing true; //Smooth view factor matrix (use when in a close surface 
+    smoothing true; //Smooth view factor matrix (use when in a close surface 
                 //to force Sum(Fij = 1)
-	constantAlbedo true; //constant emissivity on surfaces.
+    constantAlbedo true; //constant emissivity on surfaces.
 
 }
 

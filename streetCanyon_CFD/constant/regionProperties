@@ -18,8 +18,8 @@ FoamFile
 regions
 (
     fluid   (air)
-	solid   ()
-	vegetation ()
+    solid   ()
+    vegetation ()
 );
 
 // ************************************************************************* //

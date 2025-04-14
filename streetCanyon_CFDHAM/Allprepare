@@ -12,9 +12,9 @@ changeDictionary -region air > log.changeDictionary.air 2>&1
 echo "Creating mesh for solid regions"
 for i in leeward street windward
 do
-	blockMesh -region $i > log.blockMesh.$i 2>&1
-	changeDictionary -region $i > log.changeDictionary.$i 2>&1
-	setSet -region $i -noVTK -batch system/$i/setset.batch > log.setSet.$i 2>&1
+    blockMesh -region $i > log.blockMesh.$i 2>&1
+    changeDictionary -region $i > log.changeDictionary.$i 2>&1
+    setSet -region $i -noVTK -batch system/$i/setset.batch > log.setSet.$i 2>&1
 done
 
 # ----------------------------------------------------------------- end-of-file

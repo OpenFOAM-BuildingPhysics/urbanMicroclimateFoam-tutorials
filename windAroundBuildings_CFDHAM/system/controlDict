@@ -48,7 +48,7 @@ runTimeModifiable true;
 functions
 {
     probes
-    {   
+    {
         // Where to load it from
         libs            ("libsampling.so");
 
@@ -59,10 +59,10 @@ functions
 
         // Write at same frequency as fields
         writeControl    timeStep;
-        writeInterval   10;  
+        writeInterval   10;
 
         // Fields to be probed
-        fields          (T U); 
+        fields          (T U);
         region air;
 
         probeLocations
@@ -70,19 +70,19 @@ functions
             (100.595 86.3716 2.0)
             (119.398 86.1579 2.0)
         );
-    }    
+    }
 }
 
 //urbanMicroclimateFoam controls
 
-initialSolidTimestepFactor	0.001666667;
+initialSolidTimestepFactor    0.001666667;
 
 minDeltaT       1E-6;
 
 maxDeltaT       100;
 
-minFluidIteration	0;
-maxFluidIteration	1000;
+minFluidIteration    0;
+maxFluidIteration    1000;
 
 pcEqnForm    pc-based; //'pc-based' or 'mixed' - default is 'pc-based'
 

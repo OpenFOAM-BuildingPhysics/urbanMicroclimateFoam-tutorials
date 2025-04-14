@@ -56,13 +56,13 @@ SIMPLE
     nNonOrthogonalCorrectors 0;
     rhoMax          rhoMax [ 1 -3 0 0 0 ] 1.5;
     rhoMin          rhoMin [ 1 -3 0 0 0 ] 0.9;
-	
-	residualControl
+
+    residualControl
     {
         p_rgh           1e-3;
         U               1e-4;
         h               1e-4;
-		w               1e-4;
+        w               1e-4;
 
         // possibly check turbulence fields
         "(k|epsilon|omega)" 1e-4;
@@ -83,7 +83,7 @@ relaxationFactors
         "(h|e)"         0.9;
         k               0.5;
         epsilon         0.5;
-		w				0.9;
+        w               0.9;
     }
 }
 

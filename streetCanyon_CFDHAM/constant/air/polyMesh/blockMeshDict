@@ -182,16 +182,16 @@ patches
       (16 17 23 22)
   )
   wall air_to_street
-  (	  
+  (
       (8 9 15 14)
   )
   wall air_to_leeward
   (
-      (8 14 38 32) 
+      (8 14 38 32)
   )
   wall air_to_windward
   (
-      (9 15 39 33) 
+      (9 15 39 33)
   )
   slip side1
   (
@@ -207,7 +207,7 @@ patches
       (28 29 53 52)
   )
   slip side2
-  (      
+  (
       (18 19 43 42)
       (19 20 44 43)
       (20 21 45 44)

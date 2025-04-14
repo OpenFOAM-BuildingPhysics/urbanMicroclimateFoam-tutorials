@@ -26,7 +26,7 @@ dumpRays                  false;
 
 maxDynListLength 10000000;
 
-skyPosVector	(0 0 1);
+skyPosVector    (0 0 1);
 
 // Per patch (wildcard possible) the coarsening level
 west

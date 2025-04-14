@@ -17,13 +17,13 @@ FoamFile
 
 dimensions      [1 -3 0 0 0 0 0];
 
-internalField   uniform 2.5; 
+internalField   uniform 2.5;
 
 boundaryField
 {
     street_to_air
     {
-    	type			zeroGradient;
+        type            zeroGradient;
     }
     bottom
     {

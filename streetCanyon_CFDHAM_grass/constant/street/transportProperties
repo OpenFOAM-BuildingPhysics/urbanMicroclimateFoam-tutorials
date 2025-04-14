@@ -16,15 +16,15 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 buildingMaterials
-(  
+(
     {
         name    soil;
         buildingMaterialModel Soil;
-	    rho     1150;
-    	cap     650;
-		lambda1	1.5;	//lambda = lambda1 + ws*lambda2
-		lambda2	0;
-    }  		
+        rho     1150;
+        cap     650;
+        lambda1    1.5;    //lambda = lambda1 + ws*lambda2
+        lambda2    0;
+    }
 );
 
 // ************************************************************************* //
