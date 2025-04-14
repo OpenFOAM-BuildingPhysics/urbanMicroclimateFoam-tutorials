@@ -75,14 +75,14 @@ functions
 
 //urbanMicroclimateFoam controls
 
-initialSolidTimestepFactor	0.001666667;
+initialSolidTimestepFactor    0.001666667;
 
 minDeltaT       1E-6;
 
 maxDeltaT       100;
 
-minFluidIteration	0;
-maxFluidIteration	1000;
+minFluidIteration    0;
+maxFluidIteration    1000;
 
 pcEqnForm    pc-based; //'pc-based' or 'mixed' - default is 'pc-based'
 

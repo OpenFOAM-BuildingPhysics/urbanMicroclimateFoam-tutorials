@@ -23,7 +23,7 @@ boundaryField
 {
     windward_to_air
     {
-		type			zeroGradient;
+        type            zeroGradient;
     }
     interior
     {

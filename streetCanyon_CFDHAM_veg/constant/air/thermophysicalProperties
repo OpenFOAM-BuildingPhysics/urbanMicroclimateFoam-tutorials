@@ -42,10 +42,10 @@ mixture
         mu              1.8e-5;
         Pr              0.7;
     }
-	equationOfState
-	{
-		pRef			1e5;
-	}
+    equationOfState
+    {
+        pRef            1e5;
+    }
 }
 
 
