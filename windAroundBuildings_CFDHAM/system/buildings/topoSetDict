@@ -17,29 +17,44 @@ FoamFile
 actions
 (
     {
-        name    trees;
+        name    buildings_layer1;
         type    cellSet;
         action  new;
-        source surfaceToCell;
+        source boxToCell;
         sourceInfo
         {
-            file            "constant/triSurface/trees.stl";
-            outsidePoints   ((-100 -100 100));
-            includeCut      true;
-            includeInside   true;
-            includeOutside  false;
-            nearDistance    -1;
-            curvature       -100;
+            box (0.0 0.0 0.0) (250.0 160.0 60.0);
         }
     }
     {
-        name    trees;
+        name    buildings_layer1;
+        type    cellSet;
+        action  delete;
+        source cellToCell;
+        sourceInfo
+        {
+            set addedCells_layer2;
+        }
+    }
+
+    {
+        name    buildings_layer1;
         type    cellZoneSet;
         action  new;
         source  setToCellZone;
         sourceInfo
         {
-            set    trees;
+            set    buildings_layer1;
+        }
+    }
+    {
+        name    buildings_layer2;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        sourceInfo
+        {
+            set    addedCells_layer2;
         }
     }
 );

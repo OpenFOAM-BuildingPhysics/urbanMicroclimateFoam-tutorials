@@ -15,6 +15,7 @@ rm -rf constant/air/polyMesh
 mv constant/polyMesh constant/air/
 changeDictionary -region air > log.changeDictionary.air 2>&1
 
+#######################
 echo "Creating mesh for vegetation region"
 cp -r constant/polyMesh.bckp constant/polyMesh
 cp system/snappyHexMeshDict.veg system/snappyHexMeshDict
@@ -26,17 +27,23 @@ changeDictionary -region vegetation > log.changeDictionary.veg 2>&1
 cp -r 0/vegetation.bckp 0/vegetation
 rm -rf constant/polyMesh.bckp
 
-echo "Creating mesh for solid regions"
-for i in buildings
-do
-    extrudeMesh > log.extrudeMesh.$i 2>&1
-    rm -rf constant/$i/polyMesh
-    mv constant/polyMesh constant/$i/
-    createPatch -region $i -overwrite > log.createPatch.$i 2>&1
-    changeDictionary -region $i > log.changeDictionary.$i 2>&1
-    setSet -region $i -noVTK -batch system/$i/setset.batch > log.setSet.$i 2>&1
-done
+#######################
+echo "Creating mesh for buildings region"
+i=buildings
+cp system/${i}/extrudeMeshDict_${i}_layer1 system/extrudeMeshDict
+extrudeMesh > log.extrudeMesh.${i}1 2>&1
 
+cp system/${i}/extrudeMeshDict_${i}_layer2 system/extrudeMeshDict
+extrudeMesh > log.extrudeMesh.${i}2 2>&1
+mv constant/polyMesh/sets/addedCells.gz constant/polyMesh/sets/addedCells_layer2.gz
+
+rm -rf constant/$i/polyMesh
+mv constant/polyMesh constant/$i/
+createPatch -region $i -overwrite > log.createPatch.$i 2>&1
+changeDictionary -region $i > log.changeDictionary.$i 2>&1
+topoSet -region $i > log.topoSet.$i 2>&1
+
+#######################
 echo "Setting LAD values"
 topoSet -region air > log.topoSet.air 2>&1
 cp 0/air.bckp/LAD 0/air/.
