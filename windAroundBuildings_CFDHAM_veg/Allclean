@@ -8,6 +8,7 @@ cleanCase
 
 foamCleanPolyMesh -region air
 foamCleanPolyMesh -region buildings
+foamCleanPolyMesh -region ground
 foamCleanPolyMesh -region vegetation
 
 rm -f constant/air/F*

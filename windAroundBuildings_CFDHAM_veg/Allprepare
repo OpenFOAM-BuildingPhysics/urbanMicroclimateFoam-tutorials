@@ -44,6 +44,22 @@ changeDictionary -region $i > log.changeDictionary.$i 2>&1
 topoSet -region $i > log.topoSet.$i 2>&1
 
 #######################
+echo "Creating mesh for ground region"
+i=ground
+cp system/${i}/extrudeMeshDict_${i}_layer1 system/extrudeMeshDict
+extrudeMesh > log.extrudeMesh.${i}1 2>&1
+
+cp system/${i}/extrudeMeshDict_${i}_layer2 system/extrudeMeshDict
+extrudeMesh > log.extrudeMesh.${i}2 2>&1
+mv constant/polyMesh/sets/addedCells.gz constant/polyMesh/sets/addedCells_layer2.gz
+
+rm -rf constant/$i/polyMesh
+mv constant/polyMesh constant/$i/
+createPatch -region $i -overwrite > log.createPatch.$i 2>&1
+changeDictionary -region $i > log.changeDictionary.$i 2>&1
+topoSet -region $i > log.topoSet.$i 2>&1
+
+#######################
 echo "Setting LAD values"
 topoSet -region air > log.topoSet.air 2>&1
 cp 0/air.bckp/LAD 0/air/.

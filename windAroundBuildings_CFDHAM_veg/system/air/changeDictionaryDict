@@ -25,6 +25,15 @@ boundary
         offsetMode      uniform;
         offset          (0 0 0);
     }
+    ground
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        sampleRegion    ground;
+        samplePatch     ground_to_air;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
 }
 
 // ************************************************************************* //

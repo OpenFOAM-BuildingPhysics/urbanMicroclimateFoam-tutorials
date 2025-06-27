@@ -10,46 +10,30 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    location    "0/air";
-    object      w;
+    location    "345600/leeward";
+    object      pc;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 0 0 0 0];
+dimensions      [1 -1 -2 0 0 0 0];
 
-internalField   uniform 0.0075; 
+internalField   uniform -1e7;
 
 boundaryField
 {
-    west
+    ground_to_air
     {
-        #include "$FOAM_CASE/0/air/include/w_bc_air"
+        type            compressible::CFDHAMsolidMoistureCoupledImpermeable;
+        value           uniform -1e7;
     }
-    east
+    bottom
     {
-        #include "$FOAM_CASE/0/air/include/w_bc_air"
+        type            fixedValue;
+        value           uniform -7e+07;
     }
-    top
+    sides
     {
-        type            slip;
-    }
-    ground
-    {
-        type            compressible::CFDHAMfluidMoistureCoupledImpermeable;
-        value           uniform 0.0075;
-    }
-    north
-    {
-        #include "$FOAM_CASE/0/air/include/w_bc_air"
-    }
-    south
-    {
-        #include "$FOAM_CASE/0/air/include/w_bc_air"
-    }
-    buildings
-    {
-        type            compressible::CFDHAMfluidMoistureCoupledImpermeable;
-        value           uniform 0.0075;
+        type            zeroGradient;
     }
 }
 

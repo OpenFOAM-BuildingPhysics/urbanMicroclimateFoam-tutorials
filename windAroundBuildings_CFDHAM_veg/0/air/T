@@ -53,8 +53,8 @@ boundaryField
     }
     ground
     {
-        type            fixedValue;
-        value           uniform 298.15;        
+        type            compressible::CFDHAMfluidTemperatureCoupledMixed;
+        value           uniform 298.15;
     }
     north
     {

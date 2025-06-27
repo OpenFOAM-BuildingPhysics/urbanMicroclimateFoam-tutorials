@@ -11,15 +11,28 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "constant";
-    object      regionProperties;
+    object      transportProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-regions
+buildingMaterials
 (
-    fluid   (air)
-    solid   (buildings ground)
-    vegetation (vegetation)
+    {
+        name    ground_layer1;
+        buildingMaterialModel HamstadConcrete;
+        rho     1980;
+        cap     820;
+        lambda1    1.35;    //lambda = lambda1 + ws*lambda2
+        lambda2    0;
+    }
+    {
+        name    ground_layer2;
+        buildingMaterialModel Soil;
+        rho     1150;
+        cap     650;
+        lambda1    1.5;    //lambda = lambda1 + ws*lambda2
+        lambda2    0;
+    }
 );
 
 // ************************************************************************* //

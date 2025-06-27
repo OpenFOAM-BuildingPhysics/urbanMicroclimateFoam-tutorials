@@ -10,30 +10,34 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      changeDictionaryDict;
+    note        "mesh decomposition control dictionary";
+    location    "system";
+    object      decomposeParDict;
 }
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-boundary
+numberOfSubdomains  48;
+
+method          scotch;
+
+simpleCoeffs
 {
-    buildings
-    {
-        type            mappedWall;
-        sampleMode      nearestPatchFace;
-        sampleRegion    buildings;
-        samplePatch     buildings_to_air;
-        offsetMode      uniform;
-        offset          (0 0 0);
-    }
-    ground
-    {
-        type            mappedWall;
-        sampleMode      nearestPatchFace;
-        sampleRegion    ground;
-        samplePatch     ground_to_air;
-        offsetMode      uniform;
-        offset          (0 0 0);
-    }
+    n           (6 1 8);
+    delta       0.001;
 }
+
+hierarchicalCoeffs
+{
+    n           (2 2 1);
+    delta       0.001;
+    order       xyz;
+}
+
+manualCoeffs
+{
+    dataFile    "decompositionData";
+}
+
 
 // ************************************************************************* //

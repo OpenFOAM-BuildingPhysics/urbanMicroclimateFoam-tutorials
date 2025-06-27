@@ -10,30 +10,44 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      changeDictionaryDict;
+    object      fvSchemes;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-boundary
+ddtSchemes
 {
-    buildings
-    {
-        type            mappedWall;
-        sampleMode      nearestPatchFace;
-        sampleRegion    buildings;
-        samplePatch     buildings_to_air;
-        offsetMode      uniform;
-        offset          (0 0 0);
-    }
-    ground
-    {
-        type            mappedWall;
-        sampleMode      nearestPatchFace;
-        sampleRegion    ground;
-        samplePatch     ground_to_air;
-        offsetMode      uniform;
-        offset          (0 0 0);
-    }
+    default         Euler;
+}
+
+gradSchemes
+{
+    default         Gauss linear;
+}
+
+divSchemes
+{
+    default         none;
+}
+
+laplacianSchemes
+{
+    default             none;
+    laplacian(Krel,pc) Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default         linear;
+}
+
+snGradSchemes
+{
+    default         uncorrected;
+}
+
+fluxRequired
+{
+    default         no;
 }
 
 // ************************************************************************* //
