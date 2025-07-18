@@ -20,7 +20,7 @@ runApplication `getApplication`
 #runParallel faceAgglomerate -region vegetation
 #runParallel calcLAI -region air
 #runParallel viewFactorsGen -region vegetation
-#runParallel solarRayTracingVegGen -region vegetation
+#runParallel solarRayTracingGen -region vegetation
 #echo "Running solver"
 #runParallel `getApplication`
 
