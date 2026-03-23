@@ -1,13 +1,10 @@
-#!/bin/sh
-set -eu
-
-cd "${0%/*}" || exit 1
+#!/bin/bashsh
 
 FOAM_ENV_DEFAULT="/home/strebdom/OpenFOAM-12/etc/bashrc"
 FOAM_ENV="${FOAM_ENV:-$FOAM_ENV_DEFAULT}"
 
-RUN_CLEAN=0
-RUN_PREPARE=0
+RUN_CLEAN=1
+RUN_PREPARE=1
 RUN_RUN=1
 
 usage() {

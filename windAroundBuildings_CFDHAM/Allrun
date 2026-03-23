@@ -4,18 +4,20 @@ cd ${0%/*} || exit 1    # run from this directory
 # Source tutorial run functions
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
+NPROCS=$(foamDictionary -entry numberOfSubdomains -value system/air/decomposeParDict)
+
 echo "Decomposing regions"
 runApplication -s decomposePar.air decomposePar -region air
 runApplication -s decomposePar.buildings decomposePar -region buildings
 runApplication -s decomposePar.ground decomposePar -region ground
 
 echo "Initializing radiation models"
-runParallel faceAgglomerate -region air
-runParallel viewFactorsGen -region air
-runParallel solarRayTracingGen -region air
+runParallel -np $NPROCS faceAgglomerate -region air
+runParallel -np $NPROCS viewFactorsGen -region air
+runParallel -np $NPROCS solarRayTracingGen -region air
 
 echo "Running solver"
-runParallel `getApplication`
+runParallel -np $NPROCS `getApplication`
 
 echo "Reconstructing latest time"
 runApplication reconstructPar -allRegions -latestTime
