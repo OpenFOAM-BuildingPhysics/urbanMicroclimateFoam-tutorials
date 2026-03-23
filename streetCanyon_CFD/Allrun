@@ -4,19 +4,18 @@ cd ${0%/*} || exit 1    # run from this directory
 # Source tutorial run functions
 . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
+NPROCS=$(foamDictionary -entry numberOfSubdomains -value system/air/decomposeParDict)
+
 runApplication blockMesh -region air
 runApplication createPatch -region air -overwrite
 
-#-- Run on single processor
-runApplication `getApplication`
+echo "Decomposing air region"
+runApplication -s decomposePar.air decomposePar -region air
 
-## Run in parallel
-## Decompose
-#runApplication decomposePar
-#
-#runParallel `getApplication` 8
-#
-## Reconstruct
-#runApplication reconstructPar -latestTime
+echo "Running solver"
+runParallel -np $NPROCS `getApplication`
+
+echo "Reconstructing latest time"
+runApplication reconstructPar -region air -latestTime
 
 # ----------------------------------------------------------------- end-of-file
