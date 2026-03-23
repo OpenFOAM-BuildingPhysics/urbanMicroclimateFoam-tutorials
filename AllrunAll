@@ -1,0 +1,112 @@
+#!/bin/sh
+set -eu
+
+cd "${0%/*}" || exit 1
+
+FOAM_ENV_DEFAULT="/home/strebdom/OpenFOAM-12/etc/bashrc"
+FOAM_ENV="${FOAM_ENV:-$FOAM_ENV_DEFAULT}"
+
+RUN_CLEAN=0
+RUN_PREPARE=0
+RUN_RUN=1
+
+usage() {
+    cat <<'EOF'
+Usage: ./AllrunAll [--clean] [--prepare] [--run] [--prepare-run]
+
+Runs all tutorial cases sequentially.
+
+Options:
+  --clean        run Allclean before the other steps
+  --prepare      run Allprepare before Allrun
+  --run          run Allrun (default)
+  --prepare-run  shorthand for --prepare --run
+  --help         show this help
+
+Environment:
+  FOAM_ENV       path to the OpenFOAM bashrc to source
+                 default: /home/strebdom/OpenFOAM-12/etc/bashrc
+EOF
+}
+
+while [ "$#" -gt 0 ]
+do
+    case "$1" in
+        --clean)
+            RUN_CLEAN=1
+            ;;
+        --prepare)
+            RUN_PREPARE=1
+            ;;
+        --run)
+            RUN_RUN=1
+            ;;
+        --prepare-run)
+            RUN_PREPARE=1
+            RUN_RUN=1
+            ;;
+        --help|-h)
+            usage
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1" >&2
+            usage >&2
+            exit 2
+            ;;
+    esac
+    shift
+done
+
+if [ ! -f "$FOAM_ENV" ]; then
+    echo "OpenFOAM environment not found: $FOAM_ENV" >&2
+    exit 2
+fi
+
+CASES="
+streetCanyon_CFD
+streetCanyon_CFDHAM
+streetCanyon_CFDHAM_grass
+streetCanyon_CFDHAM_veg
+windAroundBuildings_CFDHAM
+windAroundBuildings_CFDHAM_veg
+"
+
+run_step() {
+    case_dir="$1"
+    script_name="$2"
+
+    if [ ! -x "$case_dir/$script_name" ] && [ ! -f "$case_dir/$script_name" ]; then
+        echo "Missing $script_name in $case_dir" >&2
+        exit 1
+    fi
+
+    printf '\n==== %s: %s ====\n' "$case_dir" "$script_name"
+    (
+        . "$FOAM_ENV"
+        cd "$case_dir" || exit 1
+        "./$script_name"
+    )
+}
+
+for case_dir in $CASES
+do
+    if [ ! -d "$case_dir" ]; then
+        echo "Skipping missing case directory: $case_dir"
+        continue
+    fi
+
+    if [ "$RUN_CLEAN" -eq 1 ] && [ -f "$case_dir/Allclean" ]; then
+        run_step "$case_dir" Allclean
+    fi
+
+    if [ "$RUN_PREPARE" -eq 1 ] && [ -f "$case_dir/Allprepare" ]; then
+        run_step "$case_dir" Allprepare
+    fi
+
+    if [ "$RUN_RUN" -eq 1 ] && [ -f "$case_dir/Allrun" ]; then
+        run_step "$case_dir" Allrun
+    fi
+done
+
+printf '\nAll requested tutorial steps completed.\n'
