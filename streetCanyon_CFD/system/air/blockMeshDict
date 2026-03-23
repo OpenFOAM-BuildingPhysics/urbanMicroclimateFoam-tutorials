@@ -161,7 +161,7 @@ boundary
     
     top
     {
-        type slip;
+        type patch;
         faces
         (
             (48 49 55 54)
@@ -231,7 +231,7 @@ boundary
     
     side1
     {
-        type slip;
+        type patch;
         faces
         (
             (0 1 25 24)
@@ -249,7 +249,7 @@ boundary
     
     side2
     {
-        type slip;
+        type patch;
         faces
         (    
             (18 19 43 42)
