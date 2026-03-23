@@ -19,7 +19,6 @@ boundary
     buildings
     {
         type            mappedWall;
-        sampleMode      nearest;
         neighbourRegion buildings;
         neighbourPatch  buildings_to_air;
         offsetMode      uniform;
@@ -28,7 +27,6 @@ boundary
     ground
     {
         type            mappedWall;
-        sampleMode      nearest;
         neighbourRegion ground;
         neighbourPatch  ground_to_air;
         offsetMode      uniform;

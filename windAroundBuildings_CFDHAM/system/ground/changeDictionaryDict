@@ -19,7 +19,6 @@ boundary
     ground_to_air
     {
         type            mappedWall;
-        sampleMode      nearest;
         neighbourRegion air;
         neighbourPatch  ground;
         offsetMode      uniform;

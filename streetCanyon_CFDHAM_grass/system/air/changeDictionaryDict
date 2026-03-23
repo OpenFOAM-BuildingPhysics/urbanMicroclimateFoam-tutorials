@@ -19,7 +19,6 @@ boundary
     air_to_street
     {
         type            mappedWall;
-        sampleMode      nearest;
         neighbourRegion street;
         neighbourPatch  street_to_air;
         offsetMode      uniform;
@@ -28,7 +27,6 @@ boundary
     air_to_windward
     {
         type            mappedWall;
-        sampleMode      nearest;
         neighbourRegion windward;
         neighbourPatch  windward_to_air;
         offsetMode      uniform;
@@ -37,7 +35,6 @@ boundary
     air_to_leeward
     {
         type            mappedWall;
-        sampleMode      nearest;
         neighbourRegion leeward;
         neighbourPatch  leeward_to_air;
         offsetMode      uniform;

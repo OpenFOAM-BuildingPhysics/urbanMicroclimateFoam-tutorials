@@ -19,7 +19,6 @@ boundary
     windward_to_air
     {
         type            mappedWall;
-        sampleMode      nearest;
         neighbourRegion air;
         neighbourPatch  air_to_windward;
         offsetMode      uniform;

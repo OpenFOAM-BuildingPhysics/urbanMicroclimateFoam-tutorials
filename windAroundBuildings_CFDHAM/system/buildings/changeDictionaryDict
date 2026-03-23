@@ -19,7 +19,6 @@ boundary
     buildings_to_air
     {
         type            mappedWall;
-        sampleMode      nearest;
         neighbourRegion air;
         neighbourPatch  buildings;
         offsetMode      uniform;
