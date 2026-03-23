@@ -19,9 +19,9 @@ boundary
     leeward_to_air
     {
         type            mappedWall;
-        sampleMode      nearestPatchFace;
-        sampleRegion    air;
-        samplePatch     air_to_leeward;
+        sampleMode      nearest;
+        neighbourRegion air;
+        neighbourPatch  air_to_leeward;
         offsetMode      uniform;
         offset          (0 0 0);
     }

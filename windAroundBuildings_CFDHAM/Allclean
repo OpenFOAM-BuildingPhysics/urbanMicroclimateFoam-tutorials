@@ -6,9 +6,9 @@ cd ${0%/*} || exit 1    # run from this directory
 
 cleanCase
 
-foamCleanPolyMesh -region air
-foamCleanPolyMesh -region buildings
-foamCleanPolyMesh -region ground
+rm -rf constant/air/polyMesh
+rm -rf constant/buildings/polyMesh
+rm -rf constant/ground/polyMesh
 
 rm -f constant/air/F*
 rm -f constant/air/constructMap*

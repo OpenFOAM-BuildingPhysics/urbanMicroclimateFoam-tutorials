@@ -25,7 +25,7 @@ regions
     // (does zerogradient on boundaries)
     zoneToCell
     {
-        name trees;
+        zone trees;
         fieldValues
         (
             volScalarFieldValue LAD 1.0
@@ -34,4 +34,3 @@ regions
 );
 
 // ************************************************************************* //
-

@@ -19,9 +19,9 @@ boundary
     street_to_air
     {
         type            mappedWall;
-        sampleMode      nearestPatchFace;
-        sampleRegion    air;
-        samplePatch     air_to_street;
+        sampleMode      nearest;
+        neighbourRegion air;
+        neighbourPatch  air_to_street;
         offsetMode      uniform;
         offset          (0 0 0);
     }

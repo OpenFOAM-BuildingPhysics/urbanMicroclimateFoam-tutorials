@@ -19,13 +19,13 @@ FoamFile
 //      mesh    : as above but with original case included
 //      surface : from externally read surface
 
-//constructFrom mesh;
+constructFrom mesh;
 //constructFrom patch;
-constructFrom surface;
+//constructFrom surface;
 
 // If construct from patch/mesh:
-sourceCase "../cavity";
-sourcePatches (movingWall);
+sourceCase ".";
+sourcePatches (otherSide);
 
 // If construct from patch: patch to use for back (can be same as sourcePatch)
 exposedPatchName movingWall;
@@ -35,7 +35,7 @@ surface "constant/triSurface/buildings_refined.stl.gz";
 
 // Flip surface normals before usage. Valid only for extrude from surface or
 // patch.
-flipNormals true;
+flipNormals false;
 
 //- Linear extrusion in point-normal direction
 extrudeModel        linearNormal;
@@ -63,7 +63,7 @@ extrudeModel        linearNormal;
 //- Extrudes into sphere with grading according to pressure (atmospherics)
 //extrudeModel        sigmaRadial;
 
-nLayers             10;
+nLayers             14;
 
 expansionRatio      1.2;
 
@@ -76,7 +76,7 @@ sectorCoeffs
 
 linearNormalCoeffs
 {
-    thickness       0.1;
+    thickness       1.9;
 }
 
 linearDirectionCoeffs

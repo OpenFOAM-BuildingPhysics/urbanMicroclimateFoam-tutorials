@@ -94,4 +94,11 @@ blendingCoeffs
     alphaCoeffT 0.1;
 }
 
+regions
+{
+    fluid       (air);
+    solid       (buildings ground);
+    vegetation  (vegetation);
+}
+
 // ************************************************************************* //

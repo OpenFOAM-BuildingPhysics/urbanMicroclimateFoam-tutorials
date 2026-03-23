@@ -12,7 +12,9 @@ cp -r constant/polyMesh constant/polyMesh.bckp
 cp system/snappyHexMeshDict.air system/snappyHexMeshDict
 snappyHexMesh -overwrite > log.snappyHexMesh.air 2>&1
 rm -rf constant/air/polyMesh
-mv constant/polyMesh constant/air/
+mkdir -p constant/air/polyMesh
+cp -r constant/polyMesh/. constant/air/polyMesh/
+rm -rf constant/polyMesh
 changeDictionary -region air > log.changeDictionary.air 2>&1
 
 #######################
@@ -21,7 +23,9 @@ cp -r constant/polyMesh.bckp constant/polyMesh
 cp system/snappyHexMeshDict.veg system/snappyHexMeshDict
 snappyHexMesh -overwrite > log.snappyHexMesh.veg 2>&1
 rm -rf constant/vegetation/polyMesh
-mv constant/polyMesh constant/vegetation/
+mkdir -p constant/vegetation/polyMesh
+cp -r constant/polyMesh/. constant/vegetation/polyMesh/
+rm -rf constant/polyMesh
 createPatch -region vegetation -overwrite > log.createPatch.veg 2>&1
 changeDictionary -region vegetation > log.changeDictionary.veg 2>&1
 cp -r 0/vegetation.bckp 0/vegetation
@@ -38,7 +42,9 @@ extrudeMesh > log.extrudeMesh.${i}2 2>&1
 mv constant/polyMesh/sets/addedCells.gz constant/polyMesh/sets/addedCells_layer2.gz
 
 rm -rf constant/$i/polyMesh
-mv constant/polyMesh constant/$i/
+mkdir -p constant/$i/polyMesh
+cp -r constant/polyMesh/. constant/$i/polyMesh/
+rm -rf constant/polyMesh
 createPatch -region $i -overwrite > log.createPatch.$i 2>&1
 changeDictionary -region $i > log.changeDictionary.$i 2>&1
 topoSet -region $i > log.topoSet.$i 2>&1
@@ -54,7 +60,9 @@ extrudeMesh > log.extrudeMesh.${i}2 2>&1
 mv constant/polyMesh/sets/addedCells.gz constant/polyMesh/sets/addedCells_layer2.gz
 
 rm -rf constant/$i/polyMesh
-mv constant/polyMesh constant/$i/
+mkdir -p constant/$i/polyMesh
+cp -r constant/polyMesh/. constant/$i/polyMesh/
+rm -rf constant/polyMesh
 createPatch -region $i -overwrite > log.createPatch.$i 2>&1
 changeDictionary -region $i > log.changeDictionary.$i 2>&1
 topoSet -region $i > log.topoSet.$i 2>&1
@@ -62,6 +70,7 @@ topoSet -region $i > log.topoSet.$i 2>&1
 #######################
 echo "Setting LAD values"
 topoSet -region air > log.topoSet.air 2>&1
+rm -f 0/air/LAD*
 cp 0/air.bckp/LAD 0/air/.
 setFields -region air > log.setFields.air 2>&1
 

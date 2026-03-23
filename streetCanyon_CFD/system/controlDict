@@ -17,6 +17,11 @@ FoamFile
 
 application     urbanMicroclimateFoam;
 
+regions
+{
+    fluid (air);
+}
+
 startFrom       latestTime;
 
 startTime       0;

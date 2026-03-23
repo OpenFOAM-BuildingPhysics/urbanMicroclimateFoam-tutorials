@@ -6,6 +6,6 @@ cd ${0%/*} || exit 1    # run from this directory
 
 cleanCase
 
-foamCleanPolyMesh -region air
+rm -rf constant/air/polyMesh
 
 # ----------------------------------------------------------------- end-of-file

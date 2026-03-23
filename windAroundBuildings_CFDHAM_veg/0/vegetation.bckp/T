@@ -23,65 +23,37 @@ boundaryField
 {
     west
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     east
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     north
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     south
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     ground
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     top
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     buildings
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     air_to_vegetation

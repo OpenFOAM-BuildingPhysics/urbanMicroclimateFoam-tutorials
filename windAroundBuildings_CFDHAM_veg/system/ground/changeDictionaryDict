@@ -19,11 +19,12 @@ boundary
     ground_to_air
     {
         type            mappedWall;
-        sampleMode      nearestPatchFace;
-        sampleRegion    air;
-        samplePatch     ground;
+        sampleMode      nearest;
+        neighbourRegion air;
+        neighbourPatch  ground;
         offsetMode      uniform;
         offset          (0 0 0);
+        matchTolerance  0.01;
     }
 }
 

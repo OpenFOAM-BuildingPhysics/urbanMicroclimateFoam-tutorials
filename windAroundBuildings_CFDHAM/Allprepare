@@ -9,7 +9,9 @@ blockMesh > log.blockMesh.air 2>&1
 surfaceFeatures > log.surfaceFeatures.air 2>&1
 snappyHexMesh -overwrite > log.snappyHexMesh.air 2>&1
 rm -rf constant/air/polyMesh
-mv constant/polyMesh constant/air/
+mkdir -p constant/air/polyMesh
+cp -r constant/polyMesh/. constant/air/polyMesh/
+rm -rf constant/polyMesh
 changeDictionary -region air > log.changeDictionary.air 2>&1
 
 #######################
@@ -23,7 +25,9 @@ extrudeMesh > log.extrudeMesh.${i}2 2>&1
 mv constant/polyMesh/sets/addedCells.gz constant/polyMesh/sets/addedCells_layer2.gz
 
 rm -rf constant/$i/polyMesh
-mv constant/polyMesh constant/$i/
+mkdir -p constant/$i/polyMesh
+cp -r constant/polyMesh/. constant/$i/polyMesh/
+rm -rf constant/polyMesh
 createPatch -region $i -overwrite > log.createPatch.$i 2>&1
 changeDictionary -region $i > log.changeDictionary.$i 2>&1
 topoSet -region $i > log.topoSet.$i 2>&1
@@ -39,7 +43,9 @@ extrudeMesh > log.extrudeMesh.${i}2 2>&1
 mv constant/polyMesh/sets/addedCells.gz constant/polyMesh/sets/addedCells_layer2.gz
 
 rm -rf constant/$i/polyMesh
-mv constant/polyMesh constant/$i/
+mkdir -p constant/$i/polyMesh
+cp -r constant/polyMesh/. constant/$i/polyMesh/
+rm -rf constant/polyMesh
 createPatch -region $i -overwrite > log.createPatch.$i 2>&1
 changeDictionary -region $i > log.changeDictionary.$i 2>&1
 topoSet -region $i > log.topoSet.$i 2>&1

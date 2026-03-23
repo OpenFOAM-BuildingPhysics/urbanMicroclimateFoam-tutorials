@@ -96,4 +96,10 @@ maxFluidIteration    1000;
 
 pcEqnForm    pc-based; //'pc-based' or 'mixed' - default is 'pc-based'
 
+regions
+{
+    fluid       (air);
+    solid       (street leeward windward);
+}
+
 // ************************************************************************* //

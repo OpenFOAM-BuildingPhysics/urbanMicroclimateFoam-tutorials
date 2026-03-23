@@ -1,17 +1,17 @@
 /*--------------------------------*- C++ -*----------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2.2.2                               |
-|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
-|    \\/     M anipulation  |                                                 |
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    location    "system";
-    object      controlDict;
+    version         2;
+    format          ascii;
+    class           dictionary;
+    location        "system";
+    object          controlDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -47,53 +47,36 @@ runTimeModifiable true;
 
 functions
 {
-    /*sysCall
-    {    
-        type systemCall;
-        functionObjectLibs ( "libutilityFunctionObjects.so" );
-        region street;
-        executeCalls 0();
-        endCalls 0();
-        writeCalls 1("./reconstructScript");
-        writeControl outputTime;
-        writeInterval 6;
-    }*/
     probes
-    {   
-        // Where to load it from
-        libs            ("libsampling.so");
-
+    {
+        libs            ( "libsampling.so" );
         type            probes;
-
-        // Name of the directory for probe data
         name            probes;
-
-        // Write at same frequency as fields
         writeControl    timeStep;
-        writeInterval   10;  
-
-        // Fields to be probed
-        fields          (T U); 
-        region air;
-
-        probeLocations
-        (
-            (65 125 5)
-        );
-    }    
+        writeInterval   10;
+        fields          ( T U );
+        region          air;
+        probeLocations  ( ( 65 125 5 ) );
+    }
 }
 
-//urbanMicroclimateFoam controls
+initialSolidTimestepFactor 0.00166667;
 
-initialSolidTimestepFactor    0.001666667;
-
-minDeltaT       1E-6;
+minDeltaT       1e-06;
 
 maxDeltaT       30;
 
-minFluidIteration    0;
-maxFluidIteration    1000;
+minFluidIteration 0;
 
-pcEqnForm    pc-based; //'pc-based' or 'mixed' - default is 'pc-based'
+maxFluidIteration 1000;
+
+pcEqnForm       pc-based;
+
+regions
+{
+    fluid           ( air );
+    solid           ( street leeward windward );
+}
+
 
 // ************************************************************************* //

@@ -19,20 +19,21 @@ boundary
     buildings
     {
         type            mappedWall;
-        sampleMode      nearestPatchFace;
-        sampleRegion    buildings;
-        samplePatch     buildings_to_air;
+        sampleMode      nearest;
+        neighbourRegion buildings;
+        neighbourPatch  buildings_to_air;
         offsetMode      uniform;
         offset          (0 0 0);
     }
     ground
     {
         type            mappedWall;
-        sampleMode      nearestPatchFace;
-        sampleRegion    ground;
-        samplePatch     ground_to_air;
+        sampleMode      nearest;
+        neighbourRegion ground;
+        neighbourPatch  ground_to_air;
         offsetMode      uniform;
         offset          (0 0 0);
+        matchTolerance  0.01;
     }
 }
 

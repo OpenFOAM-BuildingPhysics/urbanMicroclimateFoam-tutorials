@@ -14,7 +14,7 @@ for i in leeward street windward
 do
     blockMesh -region $i > log.blockMesh.$i 2>&1
     changeDictionary -region $i > log.changeDictionary.$i 2>&1
-    setSet -region $i -noVTK -batch system/$i/setset.batch > log.setSet.$i 2>&1
+    topoSet -region $i > log.topoSet.$i 2>&1
 done
 
 # ----------------------------------------------------------------- end-of-file

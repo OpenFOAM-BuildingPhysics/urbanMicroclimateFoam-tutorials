@@ -23,92 +23,58 @@ boundaryField
 {
     inlet
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     outlet
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     top
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     ground
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     air_to_street
     {
-        type            mapped;
+        type            mappedInternalValue;
         field           T;
-        setAverage      0;
-        average         0;
         interpolationScheme cell;
         value           uniform 285;
     }
     air_to_windward
     {
-        type            mapped;
+        type            mappedInternalValue;
         field           T;
-        setAverage      0;
-        average         0;
         interpolationScheme cell;
         value           uniform 285;
     }
     air_to_leeward
     {
-        type            mapped;
+        type            mappedInternalValue;
         field           T;
-        setAverage      0;
-        average         0;
         interpolationScheme cell;
         value           uniform 285;
     }
     side1
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     side2
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     buildings
     {
-        type            mapped;
-        field           T;
-        setAverage      0;
-        average         0;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     air_to_vegetation
