@@ -25,7 +25,7 @@ boundaryField
     {
         type            solarLoadRadiationViewFactor;
         albedoMode      lookup;
-        albedo          uniform 0.1;
+        albedo          uniform 0.0;
         qso             uniform 0;
         value           uniform 0;
     }
@@ -33,7 +33,7 @@ boundaryField
     {
         type            solarLoadRadiationViewFactor;
         albedoMode      lookup;
-        albedo          uniform 0.1;
+        albedo          uniform 0.0;
         qso             uniform 0;
         value           uniform 0;
     }
@@ -41,7 +41,7 @@ boundaryField
     {
         type            solarLoadRadiationViewFactor;
         albedoMode      lookup;
-        albedo          uniform 0.1;
+        albedo          uniform 0.0;
         qso             uniform 0;
         value           uniform 0;
     }
@@ -81,7 +81,7 @@ boundaryField
     {
         type            solarLoadRadiationViewFactor;
         albedoMode      lookup;
-        albedo          uniform 0.1;
+        albedo          uniform 0.0;
         qso             uniform 0;
         value           uniform 0;
     }
@@ -89,7 +89,7 @@ boundaryField
     {
         type            solarLoadRadiationViewFactor;
         albedoMode      lookup;
-        albedo          uniform 0.1;
+        albedo          uniform 0.0;
         qso             uniform 0;
         value           uniform 0;
     }

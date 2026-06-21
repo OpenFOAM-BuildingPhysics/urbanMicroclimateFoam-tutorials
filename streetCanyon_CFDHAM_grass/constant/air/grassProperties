@@ -30,7 +30,8 @@ simpleGrassCoeffs
     nEvapSides 1;
     beta 0.5;
     betaLW 1000;
-    albedoSoil 0.4;
+    albedoSoil 0.2;
+    rs 250;
 }
 
 // Number of flow iterations per grass iteration

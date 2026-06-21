@@ -6,7 +6,7 @@ Source code for the solver code can be downloaded from [here](https://github.com
 
 The solver is tested for the following OpenFOAM versions:
 
-* OpenFOAM-org (OpenFOAM Foundation) v6, v7, v8
+* OpenFOAM-org (OpenFOAM Foundation) v6, v7, v8, v12
 
 ### Usage
 

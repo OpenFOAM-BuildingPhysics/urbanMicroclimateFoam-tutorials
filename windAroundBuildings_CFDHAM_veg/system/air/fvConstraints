@@ -16,4 +16,14 @@ limitp
     maxFactor   1.2;
 }
 
+limitT
+{
+    type            limitTemperature;
+
+    selectionMode   all;
+
+    min             273.15;
+    max             373.15;
+}
+
 // ************************************************************************* //

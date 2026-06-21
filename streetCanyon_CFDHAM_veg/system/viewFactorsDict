@@ -51,17 +51,17 @@ ground
 }
 air_to_street
 {
-    nFacesInCoarsestLevel     1000;
+    nFacesInCoarsestLevel     100;
     featureAngle              10;
 }
 air_to_windward
 {
-    nFacesInCoarsestLevel     1000;
+    nFacesInCoarsestLevel     100;
     featureAngle              10;
 }
 air_to_leeward
 {
-    nFacesInCoarsestLevel     1000;
+    nFacesInCoarsestLevel     100;
     featureAngle              10;
 }
 side1

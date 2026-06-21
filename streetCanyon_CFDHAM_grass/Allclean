@@ -12,6 +12,7 @@ rm -rf constant/street/polyMesh
 rm -rf constant/windward/polyMesh
 
 rm -f constant/air/F*
+rm -f constant/air/*.gz
 rm -f constant/air/constructMap*
 rm -f constant/air/finalAgglom*
 rm -f constant/air/globalFaceFaces*

@@ -56,17 +56,17 @@ top
 }
 ground
 {
-    nFacesInCoarsestLevel     1000;
+    nFacesInCoarsestLevel     100;
     featureAngle              10;
 }
 buildings
 {
-    nFacesInCoarsestLevel     1400;
+    nFacesInCoarsestLevel     300;
     featureAngle              10;
 }
 air_to_vegetation
 {
-    nFacesInCoarsestLevel     300;
+    nFacesInCoarsestLevel     100;
     featureAngle              150;
 }
 

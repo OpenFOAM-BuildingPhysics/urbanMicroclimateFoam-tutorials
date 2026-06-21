@@ -43,23 +43,17 @@ boundaryField
     }
     air_to_street
     {
-        type            mappedInternalValue;
-        field           T;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     air_to_windward
     {
-        type            mappedInternalValue;
-        field           T;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     air_to_leeward
     {
-        type            mappedInternalValue;
-        field           T;
-        interpolationScheme cell;
+        type            mappedValue;
         value           uniform 285;
     }
     side1
@@ -86,7 +80,6 @@ boundaryField
         interpolationScheme cell;
         value           uniform 285;
     }
-
 }
 
 

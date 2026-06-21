@@ -31,7 +31,7 @@ sourcePatches (movingWall);
 exposedPatchName movingWall;
 
 // If construct from surface:
-surface "constant/triSurface/ground.obj";
+surface "constant/triSurface/ground_refined.stl";
 
 // Flip surface normals before usage. Valid only for extrude from surface or
 // patch.

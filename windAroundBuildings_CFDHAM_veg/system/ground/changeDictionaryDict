@@ -23,7 +23,6 @@ boundary
         neighbourPatch  ground;
         offsetMode      uniform;
         offset          (0 0 0);
-        matchTolerance  0.01;
     }
 }
 

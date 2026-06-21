@@ -43,7 +43,7 @@ rm -rf constant/vegetation/polyMesh
 rm -f constant/vegetation/cellToRegion*
 
 rm -f 0/air/viewFactorField*
+rm -rf 0/vegetation
 rm -f 0/air/LAD*
-rm -rf 0/vegetation/
 
 # ----------------------------------------------------------------- end-of-file

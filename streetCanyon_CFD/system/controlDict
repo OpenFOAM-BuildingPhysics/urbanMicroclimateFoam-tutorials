@@ -97,6 +97,6 @@ minDeltaT       1E-6;
 maxDeltaT       30;
 
 minFluidIteration    0;
-maxFluidIteration    10000;
+maxFluidIteration    1000;
 
 // ************************************************************************* //

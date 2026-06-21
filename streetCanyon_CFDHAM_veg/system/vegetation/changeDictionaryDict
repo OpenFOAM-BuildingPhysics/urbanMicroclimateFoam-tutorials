@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2.2.2                                 |
+|  \\    /   O peration     | Version:  12                                    |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -50,27 +50,27 @@ boundary
     }
     air_to_street
     {
-        type            mappedInternal;
+        type            mappedWall;
         neighbourRegion air;
         neighbourPatch  air_to_street;
-        offsetMode      normal;
-        distance        0;
+        offsetMode      uniform;
+        offset          (0 0 0);
     }
     air_to_windward
     {
-        type            mappedInternal;
+        type            mappedWall;
         neighbourRegion air;
         neighbourPatch  air_to_windward;
-        offsetMode      normal;
-        distance        0;
+        offsetMode      uniform;
+        offset          (0 0 0);
     }
     air_to_leeward
     {
-        type            mappedInternal;
+        type            mappedWall;
         neighbourRegion air;
         neighbourPatch  air_to_leeward;
-        offsetMode      normal;
-        distance        0;
+        offsetMode      uniform;
+        offset          (0 0 0);
     }
     side1
     {
